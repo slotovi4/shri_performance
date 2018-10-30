@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/slotovi4/shri_performance/issues"
   },
-  "homepage": "https://github.com/slotovi4/shri_performance#readme"
+  "homepage": "https://github.com/slotovi4/shri_performance#readme",
+  "dependencies": {
+    "cssnano": "^4.1.7"
+  }
 }
