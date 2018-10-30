@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/slotovi4/shri_performance#readme",
   "dependencies": {
-    "cssnano": "^4.1.7"
+    "cssnano": "^4.1.7",
+    "webp-converter": "^2.1.6"
   }
 }
