@@ -1,20 +1,22 @@
 @font-face {
-  font-family: "PT Sans";
+  font-family: PT Sans;
   font-style: normal;
   font-weight: 700;
   src: local("PT Sans Bold"), url(fonts/PTS75F_W.woff2) format("woff2"),
     url(fonts/PTS75F_W.woff) format("woff"),
     url(fonts/pts75f_w.eot) format("eot");
-  font-display: fallback;
+  font-display: swap;
+  unicode-range: 0400-04ff;
 }
 
 @font-face {
-  font-family: "PT Sans Narrow";
+  font-family: PT Sans Narrow;
   font-weight: 700;
   src: local("PT Sans Narrow Bold"), url(fonts/PTN77F_W.woff2) format("woff2"),
     url(fonts/PTN77F_W.woff) format("woff"),
     url(fonts/ptn77f_w.eot) format("eot");
-  font-display: fallback;
+  font-display: swap;
+  unicode-range: 0400-04ff;
 }
 
 * {
@@ -28,6 +30,7 @@ html {
 }
 
 .page,
+.page__wrapper,
 html {
   height: 100%;
 }
@@ -117,8 +120,8 @@ html {
   background: 0 0;
 }
 
-.adjust-bar__container_theme_temp::after,
-.adjust-bar__container_theme_temp::before {
+.adjust-bar__container_theme_temp:after,
+.adjust-bar__container_theme_temp:before {
   color: #fff;
   font-size: 18px;
   font-weight: 700;
@@ -128,53 +131,46 @@ html {
   pointer-events: none;
 }
 
-.adjust-bar__container_theme_temp::before {
+.adjust-bar__container_theme_temp:before {
   content: "–10";
   left: 15px;
 }
 
-.adjust-bar__container_theme_temp::after {
+.adjust-bar__container_theme_temp:after {
   content: "+30";
   right: 15px;
 }
 
-.adjust-bar__container_theme_light::after,
-.adjust-bar__container_theme_light::before {
+.adjust-bar__container_theme_light:after,
+.adjust-bar__container_theme_light:before {
   content: "";
   position: absolute;
   z-index: 1;
   pointer-events: none;
 }
 
-.adjust-bar__container_theme_light::before {
+.adjust-bar__container_theme_light:before {
   top: 14px;
   left: 14px;
   width: 30px;
   height: 30px;
-  background: url(assets/adjust-bar_light_from.svg) center center/contain
-    no-repeat;
+  background: url(assets/adjust-bar_light_from.svg) 50% / contain no-repeat;
 }
 
-.adjust-bar__container_theme_light::after {
+.adjust-bar__container_theme_light:after {
   top: 13px;
   right: 13px;
   width: 34px;
   height: 34px;
-  background: url(assets/adjust-bar_light_to.svg) center center/contain
-    no-repeat;
+  background: url(assets/adjust-bar_light_to.svg) 50% / contain no-repeat;
 }
 
 .adjust-bar_theme_temp {
-  background-image: linear-gradient(
-    90deg,
-    #068fff 0,
-    #ffd800 50%,
-    #f76b1c 100%
-  );
+  background-image: linear-gradient(90deg, #068fff, #ffd800 50%, #f76b1c);
 }
 
 .adjust-bar_theme_light {
-  background-image: linear-gradient(90deg, #ffe682 0, #ff9e00 100%);
+  background-image: linear-gradient(90deg, #ffe682, #ff9e00);
 }
 
 .button {
@@ -248,7 +244,7 @@ html {
   margin-right: 15px;
 }
 
-.devices::after {
+.devices:after {
   content: "";
   display: inline-block;
   min-width: 25px;
@@ -392,7 +388,7 @@ html {
   position: relative;
   background-image: url(assets/logo.webp);
   background-repeat: no-repeat;
-  background-position: left top;
+  background-position: 0 0;
   background-size: cover;
 }
 
@@ -421,21 +417,21 @@ html {
   padding: 0 20px 0 25px;
   display: flex;
   justify-content: space-between;
-  background: url(assets/sh.webp) center center/cover no-repeat;
+  background: url(assets/sh.webp) 50% / cover no-repeat;
 }
 
 .main__greeting {
   margin: 6px 0 0;
   font-size: 27px;
   font-weight: 700;
-  font-family: "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: PT Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .main__info {
   width: 61.585%;
   padding-top: 20px;
   padding-left: 20px;
-  background: rgba(255, 255, 255, 0.6);
+  background: hsla(0, 0%, 100%, 0.6);
 }
 
 .main__panel {
@@ -541,8 +537,7 @@ html {
 .modal__value_light {
   height: 45px;
   padding-right: 45px;
-  background: url(assets/panel__icon_light_off.svg) right center/contain
-    no-repeat;
+  background: url(assets/panel__icon_light_off.svg) 100% / contain no-repeat;
 }
 
 .modal__status {
@@ -578,7 +573,7 @@ html {
 }
 
 @keyframes modal {
-  from {
+  0% {
     transform: scale(0.2);
   }
 
@@ -595,10 +590,6 @@ html {
   padding: 0;
   width: 1366px;
   background-color: #fff;
-}
-
-.page__wrapper {
-  height: 100%;
 }
 
 .page__wrapper-content {
@@ -708,7 +699,7 @@ html {
   font-size: 36px;
   font-weight: 700;
   line-height: 1.16;
-  font-family: "PT Sans Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: PT Sans Narrow, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .weather__item_outside {
@@ -725,25 +716,21 @@ html {
 }
 
 .panel__icon_temp_off {
-  background: url(assets/panel__icon_temp_off.svg) center center/contain
-    no-repeat;
+  background: url(assets/panel__icon_temp_off.svg) 50% / contain no-repeat;
 }
 
 .panel__icon_temp_on {
-  background: url(assets/panel__icon_temp_on.svg) center center/contain
-    no-repeat;
+  background: url(assets/panel__icon_temp_on.svg) 50% / contain no-repeat;
 }
 
 .panel__icon_light_off {
-  background: url(assets/panel__icon_light_off.svg) center center/contain
-    no-repeat;
+  background: url(assets/panel__icon_light_off.svg) 50% / contain no-repeat;
 }
 
 .panel__icon_light_on {
-  background: url(assets/panel__icon_light_on.svg) center center/contain
-    no-repeat;
+  background: url(assets/panel__icon_light_on.svg) 50% / contain no-repeat;
 }
 
 .panel__icon_clock {
-  background: url(assets/panel__icon_clock.svg) center center/contain no-repeat;
+  background: url(assets/panel__icon_clock.svg) 50% / contain no-repeat;
 }
